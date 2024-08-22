@@ -10,5 +10,5 @@ user1 = User("Dorian", "Maissin", 31, bank)
 user2 = User("Flo", "Rigau", 33, bank2)
 user3 = User("Alice", "Choco", 28, bank)
 
-user1.create_account("current")
+user1.create_account("saving")
 print(user1.accounts,user1.bank,user1.accounts)
