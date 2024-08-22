@@ -1,7 +1,8 @@
 from datetime import datetime as dt
+from datetime import timedelta
 
 class Account:
-    def __init__(self,owner, balance=0, createdate=dt.now()):
+    def __init__(self,owner, balance=0, createdate=dt.now().date()):
         self.balance = balance
         self.owner = owner
         self.createdate = createdate
@@ -20,12 +21,12 @@ class Account:
         else:
             self.balance = new_balance
 
-    # def send_money_own_accounts(self,amont, sending_account_name, receive_account_name):
-    #     for account in self.accounts:
-    #         if account.name == receive_account_name:
-    #             new_balance = account.balance + amont
-    #             account.balance = new_balance
-
-    #         if account.name == sending_account_name:
-    #             new_balance = account.balance - amont
-    #             account.balance = new_balance
+    def interest(self, interest):
+        one_year_before = self.createdate - timedelta(days=365)
+        if (dt.now().date() - timedelta(days=365)) == one_year_before:
+            interest = (self.balance / 100) * interest
+            yearly_bonus = 0.50
+            self.balance = self.balance + interest + yearly_bonus
+            print(f"It has been a year since you opended your account with us your interest are {str(interest)} and we gave you a bonus of {str(yearly_bonus)}")
+        else:
+            print("You have not been with us for a year yet")
