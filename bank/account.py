@@ -27,6 +27,6 @@ class Account:
             interest = (self.balance / 100) * interest
             yearly_bonus = 0.50
             self.balance = self.balance + interest + yearly_bonus
-            print(f"It has been a year since you opended your account with us your interest are {str(interest)} and we gave you a bonus of {str(yearly_bonus)}")
+            print(f"It has been a year since you opended your account with us your interest are {str(interest)} and we gave you a bonus of {str(yearly_bonus)}\n")
         else:
-            print("You have not been with us for a year yet")
+            print("You have not been with us for a year yet\n")

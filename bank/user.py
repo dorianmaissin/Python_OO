@@ -35,7 +35,7 @@ class User():
         # Get the account at the specified index
         account = self.accounts[index]
         # Print the account name and balance
-        print(f"{self.first_name} Your {account.name} account balance is: {account.display_balance()}")
+        print(f"{self.first_name} Your {account.name} account balance is: {account.display_balance()}\n")
     
     # Method to deposit money into a specific account
     def depostit(self, amount, account_index):
@@ -43,7 +43,7 @@ class User():
         account = self.accounts[account_index]
         # Deposit the money into the account
         account.depostit_money(amount)
-        print(f"{self.first_name} You just deposit {amount} to your {account.name} account")
+        print(f"{self.first_name} You just deposit {amount} to your {account.name} account\n")
         
     # Method to withdraw money from a specific account
     def withdrawal(self, amount, account_index):
@@ -51,7 +51,7 @@ class User():
         account = self.accounts[account_index]
         # Withdraw the money from the account
         account.withdrawal_money(amount)
-        print(f"{self.first_name} You just withdrawal {amount} from your {account.name} account")
+        print(f"{self.first_name} You just withdrawal {amount} from your {account.name} account\n")
 
     # Method to transfer money between two of the user's own accounts
     def send_money_own_accounts(self, amount, sending_account_name, receive_account_name):
@@ -61,7 +61,7 @@ class User():
             if account.name == receive_account_name:
                 # Deposit the money into the receiving account
                 account.depostit_money(amount)
-                print(f"{self.first_name} You received {amount} from your {sending_account_name} account")
+                print(f"{self.first_name} You received {amount} from your {sending_account_name} account\n")
             # Check if the account is the sending account
             if account.name == sending_account_name:
                 # Withdraw the money from the sending account
@@ -80,7 +80,7 @@ class User():
                         # Deposit the money into the receiving account
                         foreign_account.depostit_money(amount)
                         account.withdrawal_money(amount)
-                        print(f"{self.first_name} You just send {amount} to {receiver.first_name} account")
+                        print(f"{self.first_name} You just send {amount} to {receiver.first_name} account at {receiver.bank.name} bank\n")
 
     def get_interest(self, account_index):
         account = self.accounts[account_index]
