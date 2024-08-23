@@ -20,28 +20,22 @@ class User():
     def create_account(self, account_type, deposite = 0):
         # Check the type of account to create
         if account_type == "current":
-            # Create a Current_Account object
             account = Current_Account("current",0.5, self, deposite)
         elif account_type == "saving":
-            # Create a Saving_Account object
             account = Saving_Account("saving",2 , self, deposite)
-        # Add the new account to the user's list of accounts
         self.accounts.append(account)
-        # Add the new account to the bank's list of accounts
         self.bank.add_account(account)
     
     # Method to display the balance of a specific account
     def display_account(self, index):
         # Get the account at the specified index
         account = self.accounts[index]
-        # Print the account name and balance
         print(f"{self.first_name} Your {account.name} account balance is: {account.display_balance()}\n")
     
     # Method to deposit money into a specific account
     def depostit(self, amount, account_index):
         # Get the account at the specified index
         account = self.accounts[account_index]
-        # Deposit the money into the account
         account.depostit_money(amount)
         print(f"{self.first_name} You just deposit {amount} to your {account.name} account\n")
         
@@ -49,7 +43,6 @@ class User():
     def withdrawal(self, amount, account_index):
         # Get the account at the specified index
         account = self.accounts[account_index]
-        # Withdraw the money from the account
         account.withdrawal_money(amount)
         print(f"{self.first_name} You just withdrawal {amount} from your {account.name} account\n")
 
@@ -57,14 +50,11 @@ class User():
     def send_money_own_accounts(self, amount, sending_account_name, receive_account_name):
         # Loop through the user's accounts
         for account in self.accounts:
-            # Check if the account is the receiving account
             if account.name == receive_account_name:
-                # Deposit the money into the receiving account
                 account.depostit_money(amount)
                 print(f"{self.first_name} You received {amount} from your {sending_account_name} account\n")
             # Check if the account is the sending account
             if account.name == sending_account_name:
-                # Withdraw the money from the sending account
                 account.withdrawal_money(amount)
 
     # Method to make a payment to another user's account
